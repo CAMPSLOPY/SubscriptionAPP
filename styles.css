@@ -1,0 +1,642 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+  --bg: #fcfcfc;
+  --color-text: #333333;
+  --header1: #5f6caf;
+  --color-panel: rgba(0, 0, 0, 0.301);
+  --footer: white;
+  --footerBG: black;
+}
+html[data-theme="dark"] {
+  --bg: #333333;
+  --color-text: #b5b5b5;
+  --color-panel: #fff;
+  --header1: #035aa6;
+  --footerBG: white;
+  --footer: black;
+}
+
+p {
+  font-size: 2rem;
+  margin-top: 1rem;
+}
+
+body {
+  background-image: url("./images/bg-bottom.svg"), url("./images/bg-top.svg");
+  background-position: left bottom, right top;
+  background-repeat: no-repeat, no-repeat;
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--bg);
+}
+li,
+h1,
+label {
+  font-size: 3.2rem;
+}
+.button {
+  width: 80%;
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: none;
+  font-size: 1.6rem;
+  background: linear-gradient(110deg, #9da1ee 10%, #666dec 60%);
+  position: relative;
+  cursor: pointer;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+/* overlay */
+.overlay {
+  width: 100%;
+  height: 100%;
+  background-color: #090e25;
+  position: absolute;
+  top: 0;
+  z-index: 99;
+}
+.overlay-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.overlay span {
+  width: 15px;
+  height: 15px;
+  margin: 0 2px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: inline-block;
+  animation-name: jumpingDots;
+  animation-duration: 1.4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+.overlay span:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.overlay span:nth-child(3) {
+  animation-delay: 0.8s;
+}
+
+@keyframes jumpingDots {
+  20% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+/* NAVIGATION SECTION */
+
+.card-header-section {
+  text-align: center;
+  min-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-header-section h1,
+ul {
+  padding-top: 1rem;
+}
+.card-header-section h1 {
+  color: var(--header1);
+  color: var(--header1);
+}
+
+.card-header-list {
+  color: var(--color-panel);
+  color: var(--color-panel);
+}
+nav {
+  width: 90%;
+  margin: auto;
+}
+nav ul {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-header-section li {
+  list-style: none;
+  padding: 2rem;
+}
+/* CREATING THE TOGGLE SWITCH */
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #757be4;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* main card section this section contains both the annual card section and the monthly card section 
+    and i will be manipulating with JS DOM */
+
+/* monthly card section */
+
+.monthly-cards {
+  min-height: 80vh;
+  color: black;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.monthly-card {
+  min-height: 60vh;
+  -webkit-box-shadow: 2px 2px 17px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 2px 2px 17px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 2px 17px 0px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  flex-basis: 40rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+}
+
+.monthly-card h1 {
+  font-size: 6rem;
+  padding-top: 5rem;
+}
+.monthly-card h3 {
+  font-size: 1.6rem;
+  position: relative;
+  top: 3rem;
+  color: #5f6caf;
+}
+
+.monthly-card_list {
+  width: 100%;
+  text-align: center;
+  position: relative;
+  bottom: 4rem;
+}
+.monthly-card_list ul {
+  margin: 2rem 2rem;
+}
+.monthly-card_list li {
+  border: 1px solid #ccc;
+  border-left: none;
+  border-right: none;
+  list-style: none;
+  padding: 1rem;
+  font-size: 2rem;
+  color: #090e25;
+}
+
+.monthly-professional {
+  min-height: 65vh;
+  background-color: #757be4;
+  flex-basis: 40rem;
+}
+.monthly-professional .monthly-card_list {
+  margin: 2rem 2rem;
+  color: white;
+}
+
+.monthly-professional h1 {
+  color: white;
+  position: relative;
+  top: 2rem;
+}
+
+/* .monthly-professional button{
+      bottom: 2rem;
+      color: #5f6caf!important;
+  } */
+.monthly-professional h3 {
+  color: white;
+  top: 5rem;
+}
+.monthly-professional li {
+  color: white;
+}
+
+.monthly-card button {
+  bottom: 2rem;
+}
+
+/* ANNUAL CARD SECTION */
+
+.cards {
+  min-height: 80vh;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.card {
+  min-height: 60vh;
+  -webkit-box-shadow: 2px 2px 17px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 2px 2px 17px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 2px 17px 0px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  flex-basis: 40rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+}
+
+.card:hover,
+.monthly-card:hover {
+  margin-bottom: 3%;
+  cursor: pointer;
+}
+
+.card h1 {
+  font-size: 6rem;
+  padding-top: 5rem;
+}
+.card h3 {
+  font-size: 1.6rem;
+  position: relative;
+  top: 3rem;
+  color: #5f6caf;
+}
+
+.card_list {
+  width: 100%;
+  text-align: center;
+  position: relative;
+  bottom: 4rem;
+}
+.card_list ul {
+  margin: 2rem 2rem;
+}
+
+.card_list li {
+  border: 1px solid #ccc;
+  border-left: none;
+  border-right: none;
+  list-style: none;
+  padding: 1rem;
+  font-size: 2rem;
+  color: #090e25;
+}
+.card button {
+  color: white;
+  bottom: 2rem;
+}
+
+.professional {
+  min-height: 65vh;
+  background-color: #757be4;
+  flex-basis: 40rem;
+  z-index: 2;
+}
+.professional .card_list {
+  margin: 2rem 2rem;
+  color: white;
+}
+.professional h1 {
+  color: white;
+  position: relative;
+  top: 2rem;
+}
+
+.professional button,
+.monthly-professional button {
+  background: white;
+  color: #757be4;
+  bottom: 4rem;
+}
+
+.professional li {
+  color: white;
+}
+
+.professional h3 {
+  color: white;
+  top: 5rem;
+}
+
+footer {
+  min-height: 10vh;
+  background-color: var(--footerBG);
+  background-color: var(--footerBG);
+  text-align: center;
+}
+footer a {
+  text-decoration: none;
+  font-size: 2rem;
+  color: var(--color-panel);
+  color: var(--footer);
+}
+footer ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  html {
+    font-size: 45%;
+  }
+  body {
+    background-image: url("./images/bg-top.svg");
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-size: 80px;
+  }
+  .cards {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 1rem 0rem;
+    min-height: 60vh;
+  }
+
+  .card-header-list {
+    font-size: 2.5rem;
+  }
+  .card {
+    flex-basis: 35rem;
+    margin: 1rem 0;
+    padding: 0;
+    min-height: 30vh;
+  }
+  .card button {
+    bottom: 1rem;
+  }
+  .professional button {
+    bottom: 4rem;
+  }
+  footer ul {
+    flex-direction: column;
+  }
+  .monthly-cards {
+    display: none;
+    text-align: center;
+    margin: 1rem 0rem;
+    min-height: 60vh;
+  }
+  .monthly-card {
+    flex-basis: 35rem;
+    margin: 1rem 0;
+    padding: 0;
+    min-height: 30vh;
+  }
+  .monthly-card button {
+    bottom: 1rem;
+  }
+
+  .monthly-professional button {
+    bottom: 4rem;
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1024px) {
+  .cards {
+    min-height: 60vh;
+  }
+  .card {
+    min-height: 40vh;
+    flex-basis: 30rem;
+  }
+  .card button {
+    bottom: -12rem;
+  }
+  .professional button {
+    bottom: -8rem;
+  }
+
+  .monthly-cards {
+    min-height: 60vh;
+  }
+  .monthly-card {
+    min-height: 40vh;
+    flex-basis: 30rem;
+  }
+
+  .monthly-card button {
+    bottom: -12rem;
+  }
+  .monthly-professional button {
+    bottom: -8rem;
+  }
+}
+
+.dark-mode {
+  display: flex;
+  flex-direction: cloumn;
+  width: 90%;
+  margin: auto;
+  padding: 0.3rem;
+  position: fixed;
+  top: 0%;
+  left: 0;
+}
+
+.label {
+  width: 50px;
+  height: 26px;
+  background-color: rgba(17, 17, 17, 0.884);
+  display: flex;
+  padding: 2rem 4rem;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+}
+
+.dark-mode p {
+  font-size: 2rem;
+  font-family: monospace;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  font-weight: bold;
+  color: var(--color-text);
+}
+.fa-moon {
+  color: #f1c40f;
+  font-size: 2.4rem;
+  padding-right: 2.3rem;
+}
+.fa-sun {
+  color: #f39c12;
+  font-size: 2.4rem;
+  padding: 2rem;
+}
+
+.ball {
+  background-color: #fff;
+  width: 33px;
+  height: 33px;
+  position: absolute;
+  top: 4px;
+  left: 2px;
+  transition: transform 0.2s linear;
+  cursor: pointer;
+}
+
+.checkbox {
+  position: absolute;
+  opacity: 0;
+}
+.checkbox:checked + .label .ball {
+  transform: translateX(43px);
+}
+
+html.transition,
+html.transition *,
+html.transition *:before,
+html.transition *:after {
+  transition: all 750ms !important;
+  transition-delay: 0 !important;
+}
+
+@media (max-width: 500px) {
+  .label {
+    height: 30px;
+    overflow: hidden;
+  }
+  .ball {
+    width: 25px;
+    height: 25px;
+    background-color: #5f6caf;
+    top: 3px;
+  }
+  .fa-moon {
+    font-size: 1.8rem;
+  }
+  .fa-sun {
+    font-size: 1.8rem;
+  }
+  .checkbox:checked + .label .ball {
+    transform: translateX(30px);
+  }
+}
+
+/* MODAL */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  margin: 10% auto;
+  width: 60%;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  animation-name: modalopen;
+  animation-duration: 1s;
+  z-index: 10;
+}
+
+.modal-header h2,
+.modal-footer h3 {
+  margin: 0;
+}
+
+.modal-header {
+  background: #035aa6;
+  padding: 15px;
+  color: #fff;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.modal-body {
+  padding: 50px 20px;
+  background: #fff;
+}
+
+.modal-footer {
+  background: #757be4;
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+  transition: 0.3s ease-out;
+}
+.modal-footer h3 {
+  cursor: pointer;
+  font-weight: bold;
+}
+.modal-footer:hover {
+  background-color: #0a6abe;
+}
+.close {
+  color: #ccc;
+  float: right;
+  font-size: 30px;
+  color: #fff;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

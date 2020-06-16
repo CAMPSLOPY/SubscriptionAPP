@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <meta name="robot" content="index,follow" />
+    <meta
+      name="description"
+      content="This site is built with just html css and js"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <title>Frontend Mentor | Card Toggle page</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ="
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <section class="card-section">
+      <div class="overlay">
+        <div class="overlay-body">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div id="my-modal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span id="modal-close" class="close">&times;</span>
+            <h2 id="modal-title">Modal Header</h2>
+          </div>
+          <div class="modal-body">
+            <p>This is my modal</p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
+              repellendus nisi, sunt consectetur ipsa velit repudiandae aperiam
+              modi quisquam nihil nam asperiores doloremque mollitia dolor
+              deleniti quibusdam nemo commodi ab.
+            </p>
+          </div>
+          <div id="modal-footer" class="modal-footer">
+            <h3>Subscribe</h3>
+          </div>
+        </div>
+      </div>
+      <div class="dark-mode">
+        <p id="p1"></p>
+        <input type="checkbox" id="checkbox" class="checkbox" name="theme" />
+        <label for="checkbox" class="label">
+          <i class="fas fa-sun"></i>
+          <i class="fas fa-moon"></i>
+          <div class="ball"></div>
+        </label>
+      </div>
+
+      <header class="card-header-section">
+        <h1>
+          Our Pricing
+        </h1>
+        <nav>
+          <ul>
+            <li class="card-header-list">Annually</li>
+            <li>
+              <label class="switch">
+                <input id="switcher" type="checkbox" />
+                <span class="slider round"></span>
+              </label>
+            </li>
+            <li class="card-header-list">
+              Monthly
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <article>
+        <div class="cards">
+          <div class="card">
+            <h3>Basic</h3>
+            <h1>&dollar;199.99</h1>
+
+            <div class="card_list">
+              <ul>
+                <li>500 GB Storage</li>
+                <li>2 Users Allowed</li>
+                <li>Send up to 3 GB</li>
+              </ul>
+            </div>
+
+            <button
+              id="modal-btn"
+              class="button learn-more"
+              type="submit"
+              data-package="Basic"
+            >
+              LEARN MORE
+            </button>
+          </div>
+
+          <div class="card professional">
+            <h3>professional</h3>
+            <h1>&dollar;249.99</h1>
+
+            <div class="card_list">
+              <ul>
+                <li>1 TB Storage</li>
+                <li>5 Users Allowed</li>
+                <li>Send up to 10 GB</li>
+              </ul>
+            </div>
+
+            <button
+              id="modal-btn"
+              class="button learn-more"
+              type="submit"
+              data-package="Professional"
+            >
+              LEARN MORE
+            </button>
+          </div>
+
+          <div class="card master">
+            <h3>Master</h3>
+            <h1>&dollar;399.99</h1>
+
+            <div class="card_list">
+              <ul>
+                <li>2 TB Storage</li>
+                <li>10 Users Allowed</li>
+                <li>Send up to 20 GB</li>
+              </ul>
+            </div>
+
+            <button
+              id="modal-btn"
+              class="button learn-more"
+              type="submit"
+              data-package="Master"
+            >
+              LEARN MORE
+            </button>
+          </div>
+        </div>
+
+        <div class="monthly-cards">
+          <div class="monthly-card">
+            <h3>Basic</h3>
+            <h1>&dollar;19.99</h1>
+
+            <div class="monthly-card_list">
+              <ul>
+                <li>500 GB Storage</li>
+                <li>2 Users Allowed</li>
+                <li>Send up to 3 GB</li>
+              </ul>
+            </div>
+
+            <button
+              id="modal-btn"
+              class="button learn-more"
+              type="submit"
+              data-package="Basic"
+            >
+              LEARN MORE
+            </button>
+          </div>
+
+          <div class="monthly-card monthly-professional">
+            <h3>professional</h3>
+            <h1>&dollar;24.99</h1>
+
+            <div class="monthly-card_list">
+              <ul>
+                <li>1 TB Storage</li>
+                <li>5 Users Allowed</li>
+                <li>Send up to 10 GB</li>
+              </ul>
+            </div>
+
+            <button
+              id="modal-btn"
+              class="button learn-more"
+              data-package="Professional"
+              type="submit"
+            >
+              LEARN MORE
+            </button>
+          </div>
+
+          <div class="monthly-card">
+            <h3>Master</h3>
+            <h1>&dollar;39.99</h1>
+
+            <div class="monthly-card_list">
+              <ul>
+                <li>2 TB Storage</li>
+                <li>10 Users Allowed</li>
+                <li>Send up to 20 GB</li>
+              </ul>
+            </div>
+
+            <button
+              id="modal-btn"
+              class="button learn-more"
+              data-package="Master"
+              type="submit"
+            >
+              LEARN MORE
+            </button>
+          </div>
+        </div>
+      </article>
+    </section>
+    <footer class="attribution">
+      <ul>
+        <li>
+          <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">
+            Challenge by Frontend Mentor</a
+          >.
+        </li>
+        <li>
+          <a href="https://twitter.com/Only1Camp">
+            Coded by <sup>CAMP</sup>Slopy</a
+          >.
+        </li>
+      </ul>
+    </footer>
+    <!-- gsap -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"
+      integrity="sha256-lPE3wjN2a7ABWHbGz7+MKBJaykyzqCbU96BJWjio86U="
+      crossorigin="anonymous"
+    ></script>
+    <script src="index.js"></script>
+  </body>
+</html>
