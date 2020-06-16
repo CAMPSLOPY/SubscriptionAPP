@@ -1,1 +1,3 @@
 # SubscriptionAPP
+This is a Data subscription page that allows users to pick and select the best data plan that suites their needs...
+This is purely built with Html,Css,Javascript(no frameworks.)
