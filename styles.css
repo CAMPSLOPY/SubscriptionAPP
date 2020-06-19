@@ -49,6 +49,18 @@ label {
   cursor: pointer;
   color: white;
   font-family: Arial, sans-serif;
+  transition: all .3s ease-in-out;
+}
+.basic:hover{
+ border: 1px solid #666dec;
+ color: #9da1ee;
+ background: transparent;
+ 
+}
+.prof:hover{
+  border: 1px solid white;
+  color: white;
+  background: #757be4;
 }
 
 /* overlay */
